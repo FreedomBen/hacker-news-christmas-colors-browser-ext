@@ -31,44 +31,8 @@ function isHolidaySeason() {
   return today >= startDate && today < endDate;
 }
 
-async function checkStoragePermission() {
-  try {
-    // Cross-browser compatibility
-    const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
-    
-    // Check if we have storage permission
-    if (browserAPI.permissions && browserAPI.permissions.contains) {
-      const hasPermission = await new Promise((resolve) => {
-        if (typeof browser !== 'undefined') {
-          browserAPI.permissions.contains({ permissions: ['storage'] }).then(resolve);
-        } else {
-          chrome.permissions.contains({ permissions: ['storage'] }, resolve);
-        }
-      });
-      return hasPermission;
-    }
-    
-    // If permissions API not available, try to access storage directly
-    return typeof browserAPI.storage !== 'undefined';
-  } catch (error) {
-    console.log('Storage permission check failed:', error);
-    return false;
-  }
-}
-
 async function applyChristmasColors() {
   try {
-    const hasStorage = await checkStoragePermission();
-    
-    if (!hasStorage) {
-      // No storage permission, use default behavior
-      if (isHolidaySeason()) {
-        document.body.classList.add('hn-christmas-colors');
-        setupMutationObserver();
-      }
-      return;
-    }
-    
     // Cross-browser compatibility
     const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
     
@@ -96,33 +60,29 @@ async function applyChristmasColors() {
     if (mode === 'always-on' || (mode === 'default' && isHolidaySeason())) {
       // Add the christmas-colors class to body to activate our CSS
       document.body.classList.add('hn-christmas-colors');
-      setupMutationObserver();
+      
+      // Also handle dynamically loaded content
+      const observer = new MutationObserver(() => {
+        if (document.body && !document.body.classList.contains('hn-christmas-colors')) {
+          document.body.classList.add('hn-christmas-colors');
+        }
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
     } else {
       // Remove Christmas colors if outside holiday season in default mode
       document.body.classList.remove('hn-christmas-colors');
     }
   } catch (error) {
-    console.error('Error in applyChristmasColors:', error);
-    // Fall back to default behavior if anything fails
+    console.error('Error accessing storage:', error);
+    // Fall back to default behavior if storage access fails
     if (isHolidaySeason()) {
       document.body.classList.add('hn-christmas-colors');
-      setupMutationObserver();
     }
   }
-}
-
-function setupMutationObserver() {
-  // Handle dynamically loaded content
-  const observer = new MutationObserver(() => {
-    if (document.body && !document.body.classList.contains('hn-christmas-colors')) {
-      document.body.classList.add('hn-christmas-colors');
-    }
-  });
-  
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
 }
 
 // Run when DOM is ready

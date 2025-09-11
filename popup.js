@@ -32,71 +32,12 @@ const browserAPI = (function() {
           chrome.tabs.reload(tabId, resolve);
         });
       }
-    },
-    permissions: {
-      contains: (permissions) => {
-        return new Promise((resolve) => {
-          chrome.permissions.contains(permissions, resolve);
-        });
-      },
-      request: (permissions) => {
-        return new Promise((resolve) => {
-          chrome.permissions.request(permissions, resolve);
-        });
-      }
     }
   };
 })();
 
-async function checkStoragePermission() {
-  try {
-    const hasPermission = await browserAPI.permissions.contains({ permissions: ['storage'] });
-    return hasPermission;
-  } catch (error) {
-    console.error('Error checking storage permission:', error);
-    return false;
-  }
-}
-
-async function requestStoragePermission() {
-  try {
-    const granted = await browserAPI.permissions.request({ permissions: ['storage'] });
-    return granted;
-  } catch (error) {
-    console.error('Error requesting storage permission:', error);
-    return false;
-  }
-}
-
 document.addEventListener('DOMContentLoaded', async function() {
   const statusDiv = document.getElementById('status');
-  const settingsDiv = document.querySelector('.settings');
-  const permissionDiv = document.getElementById('permission-request');
-  const grantButton = document.getElementById('grant-permission');
-  
-  const hasStorage = await checkStoragePermission();
-  
-  if (!hasStorage) {
-    // Show permission request UI
-    settingsDiv.style.display = 'none';
-    permissionDiv.style.display = 'block';
-    
-    grantButton.addEventListener('click', async function() {
-      const granted = await requestStoragePermission();
-      if (granted) {
-        // Reload popup to show settings
-        window.location.reload();
-      } else {
-        statusDiv.textContent = 'Permission denied. Using default behavior.';
-        statusDiv.className = 'status show error';
-      }
-    });
-    return;
-  }
-  
-  // Storage permission is available, show settings
-  permissionDiv.style.display = 'none';
-  settingsDiv.style.display = 'flex';
   
   try {
     const result = await browserAPI.storage.sync.get(['mode']);
@@ -127,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       } catch (error) {
         console.error('Error saving settings:', error);
         statusDiv.textContent = 'Error saving settings';
-        statusDiv.className = 'status show error';
+        statusDiv.className = 'status show';
       }
     });
   });
