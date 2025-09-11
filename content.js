@@ -31,12 +31,23 @@ function isHolidaySeason() {
   return today >= startDate && today < endDate;
 }
 
-function applyChristmasColors() {
-  // Cross-browser compatibility
-  const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
-  
-  // Check user settings
-  browserAPI.storage.sync.get(['mode'], function(result) {
+async function applyChristmasColors() {
+  try {
+    // Cross-browser compatibility
+    const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+    
+    // Get user settings
+    let result;
+    if (typeof browser !== 'undefined') {
+      // Firefox uses promises
+      result = await browserAPI.storage.sync.get(['mode']);
+    } else {
+      // Chrome uses callbacks, wrap in promise
+      result = await new Promise((resolve) => {
+        chrome.storage.sync.get(['mode'], resolve);
+      });
+    }
+    
     const mode = result.mode || 'default';
     
     // Handle different modes
@@ -65,7 +76,13 @@ function applyChristmasColors() {
       // Remove Christmas colors if outside holiday season in default mode
       document.body.classList.remove('hn-christmas-colors');
     }
-  });
+  } catch (error) {
+    console.error('Error accessing storage:', error);
+    // Fall back to default behavior if storage access fails
+    if (isHolidaySeason()) {
+      document.body.classList.add('hn-christmas-colors');
+    }
+  }
 }
 
 // Run when DOM is ready
