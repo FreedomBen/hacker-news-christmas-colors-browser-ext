@@ -1,7 +1,10 @@
+// Cross-browser compatibility
+const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+
 document.addEventListener('DOMContentLoaded', function() {
   const statusDiv = document.getElementById('status');
   
-  chrome.storage.sync.get(['mode'], function(result) {
+  browserAPI.storage.sync.get(['mode'], function(result) {
     const mode = result.mode || 'default';
     document.getElementById(mode).checked = true;
   });
@@ -10,13 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
     radio.addEventListener('change', function() {
       const selectedMode = this.value;
       
-      chrome.storage.sync.set({ mode: selectedMode }, function() {
+      browserAPI.storage.sync.set({ mode: selectedMode }, function() {
         statusDiv.textContent = 'Settings saved!';
         statusDiv.className = 'status show';
         
-        chrome.tabs.query({ url: '*://news.ycombinator.com/*' }, function(tabs) {
+        browserAPI.tabs.query({ url: '*://news.ycombinator.com/*' }, function(tabs) {
           tabs.forEach(tab => {
-            chrome.tabs.reload(tab.id);
+            browserAPI.tabs.reload(tab.id);
           });
         });
         

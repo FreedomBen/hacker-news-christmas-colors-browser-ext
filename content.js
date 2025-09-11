@@ -32,8 +32,11 @@ function isHolidaySeason() {
 }
 
 function applyChristmasColors() {
+  // Cross-browser compatibility
+  const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+  
   // Check user settings
-  chrome.storage.sync.get(['mode'], function(result) {
+  browserAPI.storage.sync.get(['mode'], function(result) {
     const mode = result.mode || 'default';
     
     // Handle different modes
