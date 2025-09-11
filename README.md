@@ -5,6 +5,7 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
 ## Features
 
 - Automatically applies red and green alternating colors to story numbers on Hacker News
+- Changes the top banner to a festive red color
 - Active from the day after Thanksgiving through the first workday of the new year
 - Works on all pages under news.ycombinator.com
 - Compatible with Chrome and Firefox
@@ -30,6 +31,7 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
 The extension:
 - Detects if the current date falls within the holiday season (day after Thanksgiving through first workday of January)
 - Applies CSS to alternate story ranking numbers between red (#be2828) and green (#005a00)
+- Changes the top banner color to festive red (#cc1010)
 - Only activates on news.ycombinator.com domains
 
 ## Files

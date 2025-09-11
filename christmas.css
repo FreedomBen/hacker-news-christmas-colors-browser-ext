@@ -3,6 +3,11 @@
   font-weight: bold !important;
 }
 
+/* Change the top banner to Christmas red */
+.hn-christmas-colors #hnmain > tbody > tr:first-child > td {
+  background-color: #cc1010 !important;
+}
+
 /* Primary selector - alternate red and green for each story */
 /* Using Hacker News Christmas colors */
 .hn-christmas-colors .athing:nth-of-type(odd) .rank {

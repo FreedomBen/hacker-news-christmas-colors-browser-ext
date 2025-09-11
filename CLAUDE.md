@@ -21,6 +21,7 @@ The extension uses Manifest V3 and consists of:
 
 2. **Styling System** (`christmas.css`):
    - Uses CSS nth-of-type selectors to alternate colors between red (#be2828) and green (#005a00)
+   - Changes top banner background to festive red (#cc1010)
    - Colors match Hacker News's actual Christmas theme colors
    - All rules use `!important` to override HN's default styles
 
