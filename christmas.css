@@ -3,43 +3,11 @@
   font-weight: bold !important;
 }
 
-/* Odd numbered stories - Red */
-.hn-christmas-colors .athing:nth-child(4n+1) .rank {
+/* Primary selector - alternate red and green for each story */
+.hn-christmas-colors .athing:nth-of-type(odd) .rank {
   color: #ff0000 !important;
 }
 
-/* Even numbered stories - Green */
-.hn-christmas-colors .athing:nth-child(4n+3) .rank {
-  color: #00ff00 !important;
-}
-
-/* For the main page table structure */
-.hn-christmas-colors table.itemlist tr.athing:nth-child(3n+1) .rank {
-  color: #ff0000 !important;
-}
-
-.hn-christmas-colors table.itemlist tr.athing:nth-child(3n+2) .rank {
-  color: #00ff00 !important;
-}
-
-.hn-christmas-colors table.itemlist tr.athing:nth-child(3n) .rank {
-  color: #ff0000 !important;
-}
-
-/* Alternative selectors for better coverage */
-.hn-christmas-colors .itemlist .athing:nth-of-type(odd) .rank {
-  color: #ff0000 !important;
-}
-
-.hn-christmas-colors .itemlist .athing:nth-of-type(even) .rank {
-  color: #00ff00 !important;
-}
-
-/* Ensure colors work on all HN pages */
-.hn-christmas-colors span.rank:nth-of-type(odd) {
-  color: #ff0000 !important;
-}
-
-.hn-christmas-colors span.rank:nth-of-type(even) {
+.hn-christmas-colors .athing:nth-of-type(even) .rank {
   color: #00ff00 !important;
 }
