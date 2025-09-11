@@ -16,7 +16,8 @@ The extension uses Manifest V3 and consists of:
 
 1. **Date Detection Logic** (`content.js`): 
    - Calculates holiday season boundaries dynamically based on Thanksgiving (4th Thursday of November) and New Year
-   - Applies `hn-christmas-colors` class to the body element when within the holiday period
+   - Checks user settings from Chrome storage to determine activation mode
+   - Applies `hn-christmas-colors` class to the body element based on mode and date
    - Uses MutationObserver to handle dynamically loaded content on Hacker News
 
 2. **Styling System** (`christmas.css`):
@@ -25,10 +26,21 @@ The extension uses Manifest V3 and consists of:
    - Colors match Hacker News's actual Christmas theme colors
    - All rules use `!important` to override HN's default styles
 
-3. **Manifest Configuration**:
+3. **Settings System** (`popup.html`, `popup.js`, `popup.css`):
+   - Provides a popup interface accessible via the extension icon
+   - Three modes available:
+     - Default: Active only during holiday season
+     - Always On: Christmas colors year-round
+     - Always Off: Disable Christmas colors completely
+   - Settings stored in Chrome sync storage for persistence across devices
+   - Automatically reloads Hacker News tabs when settings change
+
+4. **Manifest Configuration**:
    - Content scripts run at `document_idle` for optimal performance
+   - Requests `storage` permission for settings persistence
+   - Requests `tabs` permission for automatic reload on settings change
+   - Includes popup action for settings interface
    - Only requests permissions for `news.ycombinator.com` domain
-   - No background scripts or service workers needed
 
 ## Development Commands
 
@@ -53,7 +65,7 @@ The date calculation logic in `content.js:isHolidaySeason()` handles:
 - Weekend handling for January 1st
 - Timezone considerations (uses local time)
 
-To test outside the holiday season, temporarily modify the return statement in `isHolidaySeason()` to `return true;`
+To test outside the holiday season, use the extension popup to switch to "Always On" mode instead of modifying code.
 
 ### Icon Generation
 

@@ -9,6 +9,10 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
 - Active from the day after Thanksgiving through the first workday of the new year
 - Works on all pages under news.ycombinator.com
 - Compatible with Chrome and Firefox
+- Customizable settings with three modes:
+  - Default: Active only during holiday season
+  - Always On: Christmas colors year-round
+  - Always Off: Disable Christmas colors completely
 
 ## Installation
 
@@ -18,6 +22,7 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
 3. Click "Load unpacked"
 4. Select this extension's directory
 5. The extension will now be active when browsing Hacker News during the holiday season
+6. Click the extension icon in the toolbar to access settings and switch between modes
 
 ### Firefox
 1. Open Firefox and navigate to `about:debugging`
@@ -25,6 +30,7 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
 3. Click "Load Temporary Add-on"
 4. Select the `manifest.json` file from this extension's directory
 5. The extension will now be active when browsing Hacker News during the holiday season
+6. Click the extension icon in the toolbar to access settings and switch between modes
 
 ## How It Works
 
@@ -33,12 +39,19 @@ The extension:
 - Applies CSS to alternate story ranking numbers between red (#be2828) and green (#005a00)
 - Changes the top banner color to festive red (#cc1010)
 - Only activates on news.ycombinator.com domains
+- Provides a popup interface to switch between three modes:
+  - **Default**: Follows holiday season schedule
+  - **Always On**: Keeps Christmas colors active year-round
+  - **Always Off**: Disables Christmas colors regardless of date
 
 ## Files
 
 - `manifest.json` - Extension configuration
 - `content.js` - JavaScript that checks dates and applies the holiday theme
 - `christmas.css` - CSS rules for the red/green color alternation
+- `popup.html` - Settings popup interface
+- `popup.js` - Settings popup logic
+- `popup.css` - Settings popup styling
 - `icon*.png` - Extension icons in multiple sizes
 
 ## License

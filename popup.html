@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>HN Holiday Colors</h1>
+    <div class="settings">
+      <label class="radio-container">
+        <input type="radio" name="mode" value="default" id="default">
+        <span class="radio-label">Default (Holiday Season)</span>
+      </label>
+      <label class="radio-container">
+        <input type="radio" name="mode" value="always-on" id="always-on">
+        <span class="radio-label">Always On</span>
+      </label>
+      <label class="radio-container">
+        <input type="radio" name="mode" value="always-off" id="always-off">
+        <span class="radio-label">Always Off</span>
+      </label>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

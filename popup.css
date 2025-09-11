@@ -1,0 +1,74 @@
+body {
+  width: 250px;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.container {
+  padding: 16px;
+}
+
+h1 {
+  font-size: 16px;
+  margin: 0 0 16px 0;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+h1::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(45deg, #be2828 25%, #005a00 25%, #005a00 50%, #be2828 50%, #be2828 75%, #005a00 75%);
+  background-size: 8px 8px;
+  border-radius: 2px;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.radio-container:hover {
+  background-color: #f5f5f5;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.radio-label {
+  font-size: 14px;
+  color: #333;
+  user-select: none;
+}
+
+.status {
+  margin-top: 12px;
+  padding: 8px;
+  background-color: #005a00;
+  color: white;
+  border-radius: 4px;
+  font-size: 12px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.status.show {
+  opacity: 1;
+}

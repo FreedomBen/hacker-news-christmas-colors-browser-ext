@@ -32,24 +32,36 @@ function isHolidaySeason() {
 }
 
 function applyChristmasColors() {
-  // Only apply if we're in the holiday season
-  if (!isHolidaySeason()) {
-    return;
-  }
-  
-  // Add the christmas-colors class to body to activate our CSS
-  document.body.classList.add('hn-christmas-colors');
-  
-  // Also handle dynamically loaded content
-  const observer = new MutationObserver(() => {
-    if (document.body && !document.body.classList.contains('hn-christmas-colors')) {
-      document.body.classList.add('hn-christmas-colors');
+  // Check user settings
+  chrome.storage.sync.get(['mode'], function(result) {
+    const mode = result.mode || 'default';
+    
+    // Handle different modes
+    if (mode === 'always-off') {
+      // Remove Christmas colors if they're applied
+      document.body.classList.remove('hn-christmas-colors');
+      return;
     }
-  });
-  
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
+    
+    if (mode === 'always-on' || (mode === 'default' && isHolidaySeason())) {
+      // Add the christmas-colors class to body to activate our CSS
+      document.body.classList.add('hn-christmas-colors');
+      
+      // Also handle dynamically loaded content
+      const observer = new MutationObserver(() => {
+        if (document.body && !document.body.classList.contains('hn-christmas-colors')) {
+          document.body.classList.add('hn-christmas-colors');
+        }
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    } else {
+      // Remove Christmas colors if outside holiday season in default mode
+      document.body.classList.remove('hn-christmas-colors');
+    }
   });
 }
 
