@@ -4,10 +4,11 @@
 }
 
 /* Primary selector - alternate red and green for each story */
+/* Using traditional Christmas colors - darker red and green for better readability */
 .hn-christmas-colors .athing:nth-of-type(odd) .rank {
-  color: #ff0000 !important;
+  color: #c41e3a !important;  /* Christmas red */
 }
 
 .hn-christmas-colors .athing:nth-of-type(even) .rank {
-  color: #00ff00 !important;
+  color: #165b33 !important;  /* Christmas green */
 }
