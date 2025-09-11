@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Hacker News Holiday Colors",
+  "version": "1.0.0",
+  "description": "Applies Christmas colors to Hacker News story numbers during the holiday season",
+  "permissions": [],
+  "host_permissions": [
+    "*://news.ycombinator.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://news.ycombinator.com/*"],
+      "js": ["content.js"],
+      "css": ["christmas.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
