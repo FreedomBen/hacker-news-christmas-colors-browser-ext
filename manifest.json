@@ -4,8 +4,10 @@
   "version": "1.0.0",
   "description": "Applies Christmas colors to Hacker News story numbers during the holiday season",
   "permissions": [
-    "storage",
     "tabs"
+  ],
+  "optional_permissions": [
+    "storage"
   ],
   "host_permissions": [
     "*://news.ycombinator.com/*"
