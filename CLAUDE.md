@@ -69,4 +69,4 @@ To test outside the holiday season, use the extension popup to switch to "Always
 
 ### Icon Generation
 
-Icons were generated as 2x2 checkerboard patterns (red/green) in three sizes (16x16, 48x48, 128x128). If icons need regeneration, use a script that creates simple geometric patterns rather than complex graphics.
+Icons feature a festive browser window design with a green frame containing a "Y" logo, browser controls (three dots), and a red content area with a green Christmas tree topped with a golden star. Icons are provided in three sizes (16x16, 48x48, 128x128) for different display contexts.
