@@ -38,3 +38,7 @@ The extension:
 - `content.js` - JavaScript that checks dates and applies the holiday theme
 - `christmas.css` - CSS rules for the red/green color alternation
 - `icon*.png` - Extension icons in multiple sizes
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
