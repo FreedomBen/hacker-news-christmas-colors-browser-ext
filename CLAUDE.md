@@ -20,8 +20,8 @@ The extension uses Manifest V3 and consists of:
    - Uses MutationObserver to handle dynamically loaded content on Hacker News
 
 2. **Styling System** (`christmas.css`):
-   - Uses CSS nth-child selectors to alternate colors between red (#ff0000) and green (#00ff00)
-   - Multiple selector strategies to ensure coverage across different HN page structures
+   - Uses CSS nth-of-type selectors to alternate colors between red (#be2828) and green (#005a00)
+   - Colors match Hacker News's actual Christmas theme colors
    - All rules use `!important` to override HN's default styles
 
 3. **Manifest Configuration**:

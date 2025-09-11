@@ -29,7 +29,7 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
 
 The extension:
 - Detects if the current date falls within the holiday season (day after Thanksgiving through first workday of January)
-- Applies CSS to alternate story ranking numbers between red (#ff0000) and green (#00ff00)
+- Applies CSS to alternate story ranking numbers between red (#be2828) and green (#005a00)
 - Only activates on news.ycombinator.com domains
 
 ## Files
