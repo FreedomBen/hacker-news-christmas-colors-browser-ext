@@ -4,11 +4,11 @@
 }
 
 /* Primary selector - alternate red and green for each story */
-/* Using traditional Christmas colors - darker red and green for better readability */
+/* Using Hacker News Christmas colors */
 .hn-christmas-colors .athing:nth-of-type(odd) .rank {
-  color: #c41e3a !important;  /* Christmas red */
+  color: #be2828 !important;  /* HN Christmas red */
 }
 
 .hn-christmas-colors .athing:nth-of-type(even) .rank {
-  color: #165b33 !important;  /* Christmas green */
+  color: #005a00 !important;  /* HN Christmas green */
 }
