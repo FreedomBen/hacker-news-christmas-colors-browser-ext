@@ -13,10 +13,11 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
 - Active from the day after Thanksgiving through the first workday of the new year
 - Works on all pages under news.ycombinator.com
 - Compatible with Chrome and Firefox
-- Customizable settings with three modes:
+- Customizable settings with four modes:
   - Default: Active only during holiday season
   - Always On: Christmas colors year-round
   - Always Off: Disable Christmas colors completely
+  - Extra Festive: Animated colors with festive GIF decoration
 
 ## Installation
 
@@ -43,10 +44,11 @@ The extension:
 - Applies CSS to alternate story ranking numbers between red (#be2828) and green (#005a00)
 - Changes the top banner color to festive red (#cc1010)
 - Only activates on news.ycombinator.com domains
-- Provides a popup interface to switch between three modes:
+- Provides a popup interface to switch between four modes:
   - **Default**: Follows holiday season schedule
   - **Always On**: Keeps Christmas colors active year-round
   - **Always Off**: Disables Christmas colors regardless of date
+  - **Extra Festive**: Animated alternating colors (every 2 seconds) plus animated Christmas tree GIF at top of page
 
 ## Files
 

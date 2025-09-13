@@ -17,3 +17,45 @@
 .hn-christmas-colors .athing:nth-of-type(even) .rank {
   color: #005a00 !important;  /* HN Christmas green */
 }
+
+/* Extra Festive Mode Animations */
+@keyframes alternateRedGreen {
+  0%, 100% {
+    color: #be2828 !important;
+  }
+  50% {
+    color: #005a00 !important;
+  }
+}
+
+@keyframes alternateGreenRed {
+  0%, 100% {
+    color: #005a00 !important;
+  }
+  50% {
+    color: #be2828 !important;
+  }
+}
+
+@keyframes alternateHeaderRedGreen {
+  0%, 100% {
+    background-color: #cc1010 !important;
+  }
+  50% {
+    background-color: #005a00 !important;
+  }
+}
+
+/* Extra Festive mode - animated colors */
+.hn-extra-festive .athing:nth-of-type(odd) .rank {
+  animation: alternateRedGreen 2s infinite !important;
+}
+
+.hn-extra-festive .athing:nth-of-type(even) .rank {
+  animation: alternateGreenRed 2s infinite !important;
+}
+
+/* Animate the header bar in extra festive mode */
+.hn-extra-festive #hnmain > tbody > tr:first-child > td {
+  animation: alternateHeaderRedGreen 2s infinite !important;
+}

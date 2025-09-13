@@ -28,12 +28,17 @@ The extension uses Manifest V3 and consists of:
 
 3. **Settings System** (`popup.html`, `popup.js`, `popup.css`):
    - Provides a popup interface accessible via the extension icon
-   - Three modes available:
+   - Four modes available:
      - Default: Active only during holiday season
      - Always On: Christmas colors year-round
      - Always Off: Disable Christmas colors completely
+     - Extra Festive: Animated colors (alternating red/green every 2 seconds) plus festive GIF
    - Settings stored in Chrome sync storage for persistence across devices
    - Automatically reloads Hacker News tabs when settings change
+   - Extra Festive mode features:
+     - Story numbers alternate between red and green colors every 2 seconds
+     - Title bar alternates between red and green backgrounds
+     - Animated Christmas tree GIF displayed at top of story list
 
 4. **Manifest Configuration**:
    - Content scripts run at `document_idle` for optimal performance

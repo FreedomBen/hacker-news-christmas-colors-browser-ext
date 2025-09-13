@@ -1,3 +1,36 @@
+function addFestiveGif() {
+  // Remove existing GIF if present
+  removeFestiveGif();
+
+  // Find the table with the story list
+  const storyTable = document.querySelector('.itemlist');
+  if (!storyTable) return;
+
+  // Create a new row for the GIF
+  const gifRow = document.createElement('tr');
+  gifRow.id = 'hn-festive-gif';
+  gifRow.innerHTML = `
+    <td colspan="3" style="text-align: center; padding: 20px 0;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif"
+           alt="Festive Christmas Tree"
+           style="height: 100px; width: auto;">
+    </td>
+  `;
+
+  // Insert at the beginning of the story list
+  const firstStory = storyTable.querySelector('.athing');
+  if (firstStory) {
+    storyTable.insertBefore(gifRow, firstStory);
+  }
+}
+
+function removeFestiveGif() {
+  const existingGif = document.getElementById('hn-festive-gif');
+  if (existingGif) {
+    existingGif.remove();
+  }
+}
+
 function isHolidaySeason() {
   const today = new Date();
   const year = today.getFullYear();
@@ -57,17 +90,43 @@ async function applyChristmasColors() {
       return;
     }
     
-    if (mode === 'always-on' || (mode === 'default' && isHolidaySeason())) {
+    if (mode === 'extra-festive') {
+      // Extra Festive mode - animated colors and GIF
+      document.body.classList.add('hn-christmas-colors');
+      document.body.classList.add('hn-extra-festive');
+
+      // Add festive GIF at the top of the story list
+      addFestiveGif();
+
+      // Handle dynamically loaded content
+      const observer = new MutationObserver(() => {
+        if (document.body && !document.body.classList.contains('hn-extra-festive')) {
+          document.body.classList.add('hn-christmas-colors');
+          document.body.classList.add('hn-extra-festive');
+        }
+        // Re-add GIF if it gets removed
+        if (!document.getElementById('hn-festive-gif')) {
+          addFestiveGif();
+        }
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    } else if (mode === 'always-on' || (mode === 'default' && isHolidaySeason())) {
       // Add the christmas-colors class to body to activate our CSS
       document.body.classList.add('hn-christmas-colors');
-      
+      document.body.classList.remove('hn-extra-festive');
+      removeFestiveGif();
+
       // Also handle dynamically loaded content
       const observer = new MutationObserver(() => {
         if (document.body && !document.body.classList.contains('hn-christmas-colors')) {
           document.body.classList.add('hn-christmas-colors');
         }
       });
-      
+
       observer.observe(document.body, {
         childList: true,
         subtree: true
@@ -75,6 +134,8 @@ async function applyChristmasColors() {
     } else {
       // Remove Christmas colors if outside holiday season in default mode
       document.body.classList.remove('hn-christmas-colors');
+      document.body.classList.remove('hn-extra-festive');
+      removeFestiveGif();
     }
   } catch (error) {
     console.error('Error accessing storage:', error);
