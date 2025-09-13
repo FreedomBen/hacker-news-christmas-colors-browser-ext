@@ -10,11 +10,11 @@
 
 /* Primary selector - alternate red and green for each story */
 /* Using Hacker News Christmas colors */
-.hn-christmas-colors .athing:nth-of-type(odd) .rank {
+.hn-christmas-colors:not(.hn-extra-festive) .athing:nth-of-type(odd) .rank {
   color: #be2828 !important;  /* HN Christmas red */
 }
 
-.hn-christmas-colors .athing:nth-of-type(even) .rank {
+.hn-christmas-colors:not(.hn-extra-festive) .athing:nth-of-type(even) .rank {
   color: #005a00 !important;  /* HN Christmas green */
 }
 
@@ -92,21 +92,20 @@
 }
 
 /* Extra Festive mode - animated colors */
-.hn-extra-festive .athing:nth-of-type(odd) .rank {
+.hn-extra-festive .rank {
   -webkit-animation: alternateRedGreen 1s linear infinite !important;
   animation: alternateRedGreen 1s linear infinite !important;
-  color: #be2828 !important;
 }
 
+/* Stagger the animations for odd/even */
 .hn-extra-festive .athing:nth-of-type(even) .rank {
-  -webkit-animation: alternateGreenRed 1s linear infinite !important;
-  animation: alternateGreenRed 1s linear infinite !important;
-  color: #005a00 !important;
+  -webkit-animation-delay: 0.5s !important;
+  animation-delay: 0.5s !important;
 }
 
 /* Animate the header bar in extra festive mode */
-.hn-extra-festive #hnmain > tbody > tr:first-child > td {
+body.hn-extra-festive #hnmain > tbody > tr:first-child > td,
+.hn-christmas-colors.hn-extra-festive #hnmain > tbody > tr:first-child > td {
   -webkit-animation: alternateHeaderRedGreen 1s linear infinite !important;
   animation: alternateHeaderRedGreen 1s linear infinite !important;
-  background-color: #cc1010 !important;
 }
