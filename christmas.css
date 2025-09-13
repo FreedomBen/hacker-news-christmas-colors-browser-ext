@@ -48,14 +48,14 @@
 
 /* Extra Festive mode - animated colors */
 .hn-extra-festive .athing:nth-of-type(odd) .rank {
-  animation: alternateRedGreen 2s infinite !important;
+  animation: alternateRedGreen 1s infinite !important;
 }
 
 .hn-extra-festive .athing:nth-of-type(even) .rank {
-  animation: alternateGreenRed 2s infinite !important;
+  animation: alternateGreenRed 1s infinite !important;
 }
 
 /* Animate the header bar in extra festive mode */
 .hn-extra-festive #hnmain > tbody > tr:first-child > td {
-  animation: alternateHeaderRedGreen 2s infinite !important;
+  animation: alternateHeaderRedGreen 1s infinite !important;
 }

@@ -2,26 +2,30 @@ function addFestiveGif() {
   // Remove existing GIF if present
   removeFestiveGif();
 
-  // Find the table with the story list
-  const storyTable = document.querySelector('.itemlist');
-  if (!storyTable) return;
+  // Wait a bit for page to load if needed
+  setTimeout(() => {
+    // Find the first story item
+    const firstStory = document.querySelector('.athing');
+    if (!firstStory) {
+      console.log('HN Holiday Colors: No stories found for GIF placement');
+      return;
+    }
 
-  // Create a new row for the GIF
-  const gifRow = document.createElement('tr');
-  gifRow.id = 'hn-festive-gif';
-  gifRow.innerHTML = `
-    <td colspan="3" style="text-align: center; padding: 20px 0;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif"
-           alt="Festive Christmas Tree"
-           style="height: 100px; width: auto;">
-    </td>
-  `;
+    // Create a new row for the GIF
+    const gifRow = document.createElement('tr');
+    gifRow.id = 'hn-festive-gif';
+    gifRow.innerHTML = `
+      <td colspan="3" style="text-align: center; padding: 20px 0; background: #f6f6ef;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif"
+             alt="Festive Christmas Tree"
+             style="height: 100px; width: auto; display: inline-block;">
+      </td>
+    `;
 
-  // Insert at the beginning of the story list
-  const firstStory = storyTable.querySelector('.athing');
-  if (firstStory) {
-    storyTable.insertBefore(gifRow, firstStory);
-  }
+    // Insert before the first story
+    firstStory.parentNode.insertBefore(gifRow, firstStory);
+    console.log('HN Holiday Colors: Festive GIF added');
+  }, 100);
 }
 
 function removeFestiveGif() {
@@ -87,6 +91,8 @@ async function applyChristmasColors() {
     if (mode === 'always-off') {
       // Remove Christmas colors if they're applied
       document.body.classList.remove('hn-christmas-colors');
+      document.body.classList.remove('hn-extra-festive');
+      removeFestiveGif();
       return;
     }
     
