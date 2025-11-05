@@ -1,7 +1,7 @@
-# Hacker News Holiday Colors Extension
+# Hacker News Christmas Colors Extension
 
 <div align="center">
-  <img src="icon128.png" alt="HN Holiday Colors Logo" width="96" height="96">
+  <img src="icon128.png" alt="HN Christmas Colors Logo" width="96" height="96">
 </div>
 
 A browser extension that brings the festive Christmas colors to Hacker News throughout the entire holiday season, not just on Christmas Day.

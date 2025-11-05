@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Hacker News Holiday Colors",
+  "name": "Hacker News Christmas Colors",
   "version": "1.0.0",
   "description": "Applies Christmas colors to Hacker News story numbers during the holiday season",
   "permissions": [

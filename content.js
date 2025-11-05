@@ -7,24 +7,70 @@ function addFestiveGif() {
     // Find the first story item
     const firstStory = document.querySelector('.athing');
     if (!firstStory) {
-      console.log('HN Holiday Colors: No stories found for GIF placement');
+      console.log('HN Christmas Colors: No stories found for GIF placement');
       return;
     }
 
-    // Create a new row for the GIF
+    // Create a new row for the festive element
     const gifRow = document.createElement('tr');
     gifRow.id = 'hn-festive-gif';
+
+    // Use inline SVG Christmas tree with animation to avoid CSP issues
     gifRow.innerHTML = `
       <td colspan="3" style="text-align: center; padding: 20px 0; background: #f6f6ef;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif"
-             alt="Festive Christmas Tree"
-             style="height: 100px; width: auto; display: inline-block;">
+        <svg width="80" height="100" viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+          <!-- Tree layers -->
+          <polygon points="40,10 20,35 60,35" fill="#0f7938">
+            <animate attributeName="fill" values="#0f7938;#1a9c4a;#0f7938" dur="2s" repeatCount="indefinite"/>
+          </polygon>
+          <polygon points="40,20 15,50 65,50" fill="#0f7938">
+            <animate attributeName="fill" values="#0f7938;#1a9c4a;#0f7938" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+          </polygon>
+          <polygon points="40,35 10,70 70,70" fill="#0f7938">
+            <animate attributeName="fill" values="#0f7938;#1a9c4a;#0f7938" dur="2s" begin="1s" repeatCount="indefinite"/>
+          </polygon>
+
+          <!-- Trunk -->
+          <rect x="35" y="70" width="10" height="15" fill="#8B4513"/>
+
+          <!-- Star on top -->
+          <polygon points="40,5 42,12 48,12 43,16 45,23 40,19 35,23 37,16 32,12 38,12" fill="#FFD700">
+            <animate attributeName="fill" values="#FFD700;#FFF700;#FFD700" dur="1s" repeatCount="indefinite"/>
+            <animateTransform attributeName="transform" type="rotate" from="0 40 14" to="360 40 14" dur="4s" repeatCount="indefinite"/>
+          </polygon>
+
+          <!-- Ornaments -->
+          <circle cx="30" cy="32" r="3" fill="#ff0000">
+            <animate attributeName="r" values="3;4;3" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="50" cy="32" r="3" fill="#ff0000">
+            <animate attributeName="r" values="3;4;3" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="25" cy="48" r="3" fill="#ffd700">
+            <animate attributeName="r" values="3;4;3" dur="1.5s" begin="0.25s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="55" cy="48" r="3" fill="#ffd700">
+            <animate attributeName="r" values="3;4;3" dur="1.5s" begin="0.75s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="20" cy="65" r="3" fill="#ff0000">
+            <animate attributeName="r" values="3;4;3" dur="1.5s" begin="1s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="40" cy="60" r="3" fill="#ffd700">
+            <animate attributeName="r" values="3;4;3" dur="1.5s" begin="0.1s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="60" cy="65" r="3" fill="#ff0000">
+            <animate attributeName="r" values="3;4;3" dur="1.5s" begin="1.25s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+        <div style="margin-top: 5px; color: #005a00; font-weight: bold; font-size: 14px;">
+          🎄 Happy Holidays! 🎄
+        </div>
       </td>
     `;
 
     // Insert before the first story
     firstStory.parentNode.insertBefore(gifRow, firstStory);
-    console.log('HN Holiday Colors: Festive GIF added');
+    console.log('HN Christmas Colors: Festive decoration added');
   }, 100);
 }
 
