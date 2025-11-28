@@ -1,11 +1,37 @@
+let cachedFestiveTreeUrl = null;
+
+async function getFestiveTreeUrl() {
+  if (cachedFestiveTreeUrl) {
+    return cachedFestiveTreeUrl;
+  }
+
+  if (typeof HN_FESTIVE_TREE_DATA_URI === 'string') {
+    cachedFestiveTreeUrl = HN_FESTIVE_TREE_DATA_URI;
+    return cachedFestiveTreeUrl;
+  }
+
+  try {
+    const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+    const response = await fetch(browserAPI.runtime.getURL('xmas_tree_animated.gif'));
+    const blob = await response.blob();
+    cachedFestiveTreeUrl = URL.createObjectURL(blob);
+    return cachedFestiveTreeUrl;
+  } catch (error) {
+    console.error('HN Christmas Colors: Unable to load festive GIF', error);
+    return null;
+  }
+}
+
 function addFestiveGif() {
   // Remove existing GIF if present
   removeFestiveGif();
 
   // Wait a bit for page to load if needed
-  setTimeout(() => {
-    const runtimeAPI = typeof browser !== 'undefined' ? browser : chrome;
-    const treeUrl = runtimeAPI.runtime.getURL('xmas_tree_animated.gif');
+  setTimeout(async () => {
+    const treeUrl = await getFestiveTreeUrl();
+    if (!treeUrl) {
+      return;
+    }
 
     // Find the first story item
     const firstStory = document.querySelector('.athing');

@@ -21,7 +21,10 @@
   "content_scripts": [
     {
       "matches": ["*://news.ycombinator.com/*"],
-      "js": ["content.js"],
+      "js": [
+        "festive_tree_data_uri.js",
+        "content.js"
+      ],
       "css": ["christmas.css"],
       "run_at": "document_idle"
     }

@@ -17,7 +17,7 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
   - Default: Active only during holiday season
   - Always On: Christmas colors year-round
   - Always Off: Disable Christmas colors completely
-  - Extra Festive: Animated colors with a Wikimedia Commons Christmas tree GIF decoration
+  - Extra Festive: Animated colors with a Wikimedia Commons Christmas tree GIF decoration (bundled with the extension to satisfy site CSP rules)
 
 ## Installation
 
@@ -48,7 +48,7 @@ The extension:
   - **Default**: Follows holiday season schedule
   - **Always On**: Keeps Christmas colors active year-round
   - **Always Off**: Disables Christmas colors regardless of date
-  - **Extra Festive**: Animated alternating colors (every 2 seconds) plus the animated [Wikimedia Commons Christmas tree GIF](https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif) at the top of the page
+  - **Extra Festive**: Animated alternating colors (every 2 seconds) plus the animated [Wikimedia Commons Christmas tree GIF](https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif) at the top of the page, loaded from a bundled copy and injected as a safe data URL
 
 ## Files
 
@@ -59,7 +59,7 @@ The extension:
 - `popup.js` - Settings popup logic
 - `popup.css` - Settings popup styling
 - `icon*.png` - Extension icons in multiple sizes
-- `xmas_tree_animated.gif` - Animated Christmas tree GIF sourced from Wikimedia Commons for Extra Festive mode
+- `xmas_tree_animated.gif` - Bundled Wikimedia Commons tree GIF that `content.js` converts to a data URL for Extra Festive mode
 
 ## License
 
