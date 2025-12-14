@@ -17,7 +17,7 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
   - Default: Active only during holiday season
   - Always On: Christmas colors year-round
   - Always Off: Disable Christmas colors completely
-  - Extra Festive: Animated colors with a Wikimedia Commons Christmas tree GIF decoration (bundled with the extension to satisfy site CSP rules)
+  - Extra Festive: Alternating colors that hold for one second then flip (2s loop; even rows start on green to keep the checkerboard feel), an alternating banner tint, and a bundled Wikimedia Commons Christmas tree GIF decoration (keeps CSP-safe via data URL)
 
 ## Screenshots
 
@@ -65,7 +65,13 @@ The extension:
   - **Default**: Follows holiday season schedule
   - **Always On**: Keeps Christmas colors active year-round
   - **Always Off**: Disables Christmas colors regardless of date
-  - **Extra Festive**: Animated alternating colors (every 2 seconds) plus the animated [Wikimedia Commons Christmas tree GIF](https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif) at the top of the page, loaded from a bundled copy and injected as a safe data URL
+  - **Extra Festive**: Alternating colors that stay static for one second then flip (2-second loop; even rows start on green), alternating banner tint, and the animated [Wikimedia Commons Christmas tree GIF](https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif) at the top of the page, loaded from a bundled copy and injected as a safe data URL. Colors now jump directly between red and green with no gray in-between.
+
+## Development & Testing
+
+- Load the unpacked extension in Chrome (`chrome://extensions`) or run `npx web-ext run --target=firefox-desktop` for Firefox.
+- Lint before publishing with `npx web-ext lint`.
+- Manual QA on `https://news.ycombinator.com/`: toggle each mode, confirm alternating ranks and banner color, verify ranks jump directly red↔green once per second (odd rows red→green, even rows green→red) and the animated tree appears in Extra Festive mode, and ensure settings persist across tabs (tabs auto-reload after changes).
 
 ## Files
 

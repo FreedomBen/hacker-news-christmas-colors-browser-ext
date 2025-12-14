@@ -20,50 +20,46 @@
 
 /* Extra Festive Mode Animations */
 @keyframes alternateRedGreen {
-  0% {
+  0%,
+  49.999% {
     color: #be2828;
   }
-  50% {
-    color: #005a00;
-  }
+  50%,
   100% {
-    color: #be2828;
+    color: #005a00;
   }
 }
 
 @-webkit-keyframes alternateRedGreen {
-  0% {
+  0%,
+  49.999% {
     color: #be2828;
   }
-  50% {
-    color: #005a00;
-  }
+  50%,
   100% {
-    color: #be2828;
+    color: #005a00;
   }
 }
 
 @keyframes alternateGreenRed {
-  0% {
+  0%,
+  49.999% {
     color: #005a00;
   }
-  50% {
-    color: #be2828;
-  }
+  50%,
   100% {
-    color: #005a00;
+    color: #be2828;
   }
 }
 
 @-webkit-keyframes alternateGreenRed {
-  0% {
+  0%,
+  49.999% {
     color: #005a00;
   }
-  50% {
-    color: #be2828;
-  }
+  50%,
   100% {
-    color: #005a00;
+    color: #be2828;
   }
 }
 
@@ -91,16 +87,16 @@
   }
 }
 
-/* Extra Festive mode - animated colors */
+/* Extra Festive mode - hold for 1s, then flip color */
 .hn-extra-festive .rank {
-  -webkit-animation: alternateRedGreen 1s linear infinite !important;
-  animation: alternateRedGreen 1s linear infinite !important;
+  -webkit-animation: alternateRedGreen 2s linear infinite !important;
+  animation: alternateRedGreen 2s linear infinite !important;
 }
 
-/* Stagger the animations for odd/even */
+/* Even rows start on green to keep the checkerboard effect */
 .hn-extra-festive .athing:nth-of-type(even) .rank {
-  -webkit-animation-delay: 0.5s !important;
-  animation-delay: 0.5s !important;
+  -webkit-animation-name: alternateGreenRed !important;
+  animation-name: alternateGreenRed !important;
 }
 
 /* Animate the header bar in extra festive mode */

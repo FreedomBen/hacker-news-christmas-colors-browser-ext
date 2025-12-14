@@ -8,7 +8,7 @@
 - Docs (`README.md`, `TODO.md`, `CLAUDE.md`, `DEVELOPMENT_HISTORY.md`): Update when user-visible behavior or contributor process changes to keep guidance synchronized.
 
 ## Architecture Overview
-Holiday activation depends on `isHolidaySeason()`; prefer switching modes instead of editing date logic when testing. Extra Festive mode animates ranks every two seconds, alternates the header tint, and should survive DOM refreshes by keeping helper functions idempotent. MutationObserver callbacks must guard against duplicate class toggles and reinsert the festive tree if a page refresh removes it.
+Holiday activation depends on `isHolidaySeason()`; prefer switching modes instead of editing date logic when testing. Extra Festive mode holds a color for one second then flips (2s loop; even rows start on green, no gray transition), alternates the header tint, and should survive DOM refreshes by keeping helper functions idempotent. MutationObserver callbacks must guard against duplicate class toggles and reinsert the festive tree if a page refresh removes it.
 
 ## Build, Test, and Development Commands
 No bundler is required. For Chrome, visit `chrome://extensions`, enable Developer Mode, and choose *Load unpacked*. For Firefox, run `npx web-ext run --target=firefox-desktop`. Validate before shipping with `npx web-ext lint`. Package for store uploads using `zip -r hn-christmas-colors.zip manifest.json *.js *.css popup.html icon*.png`.

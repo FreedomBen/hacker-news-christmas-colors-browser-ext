@@ -30,15 +30,15 @@ The extension uses Manifest V3 and consists of:
    - Provides a popup interface accessible via the extension icon
    - Four modes available:
      - Default: Active only during holiday season
-    - Always On: Christmas colors year-round
-    - Always Off: Disable Christmas colors completely
-     - Extra Festive: Animated colors (alternating red/green every 2 seconds) plus the Wikimedia Commons Christmas tree GIF decoration loaded from the bundled asset
+     - Always On: Christmas colors year-round
+     - Always Off: Disable Christmas colors completely
+     - Extra Festive: Colors stay static for one second then flip (2-second loop; even rows start on green, no gray transition) plus the Wikimedia Commons Christmas tree GIF decoration loaded from the bundled asset
    - Settings stored in Chrome sync storage for persistence across devices
    - Automatically reloads Hacker News tabs when settings change
    - Extra Festive mode features:
-     - Story numbers alternate between red and green colors every 2 seconds
-     - Title bar alternates between red and green backgrounds
-     - Animated Christmas tree GIF (bundle file `xmas_tree_animated.gif`, converted to a data/blob URL) displayed at top of story list to comply with Hacker News CSP
+     - Story numbers hold color for one second, then flip, repeating (even rows start on green to keep the checkerboard look; colors jump directly without intermediate gray)
+     - Title bar alternates between red and green backgrounds (1-second loop)
+     - Animated Christmas tree GIF (bundle file `xmas_tree_animated.gif`, converted to a data/blob URL) displayed at the top of the story list to comply with Hacker News CSP
 
 4. **Manifest Configuration**:
    - Content scripts run at `document_idle` for optimal performance
