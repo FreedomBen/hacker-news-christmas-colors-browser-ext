@@ -105,3 +105,14 @@ body.hn-extra-festive #hnmain > tbody > tr:first-child > td,
   -webkit-animation: alternateHeaderRedGreen 1s linear infinite !important;
   animation: alternateHeaderRedGreen 1s linear infinite !important;
 }
+
+/* Add tree emoji before and after each story title in extra festive mode
+.hn-extra-festive .titleline > a::before {
+  content: "🎁 ";
+}
+*/
+
+/* Disable for now */
+.hn-extra-festive .titleline > a::after {
+  content: " 🎄";
+}
