@@ -19,6 +19,23 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
   - Always Off: Disable Christmas colors completely
   - Extra Festive: Animated colors with a Wikimedia Commons Christmas tree GIF decoration (bundled with the extension to satisfy site CSP rules)
 
+## Screenshots
+
+<div align="center">
+  <p><em>Normal mode</em></p>
+  <img src="screenshots/christmas-normal-mode.png" alt="Hacker News with the extension in normal mode">
+</div>
+
+<div align="center">
+  <p><em>Settings</em></p>
+  <img src="screenshots/settings-menu.png" alt="Extension settings popup showing the four modes">
+</div>
+
+<div align="center">
+  <p><em>Extra Festive mode</em></p>
+  <img src="screenshots/christmas-extra-festive-mode.png" alt="Hacker News with the extension in extra festive mode">
+</div>
+
 ## Installation
 
 ### Chrome
