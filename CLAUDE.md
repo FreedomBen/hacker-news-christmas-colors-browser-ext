@@ -32,7 +32,7 @@ The extension uses Manifest V3 and consists of:
      - Default: Active only during holiday season
      - Always On: Christmas colors year-round
      - Always Off: Disable Christmas colors completely
-     - Extra Festive: Colors stay static for one second then flip (2-second loop; even rows start on green, no gray transition), tree emojis prefixed/suffixed on story titles, plus the Wikimedia Commons Christmas tree GIF decoration loaded from the bundled asset
+     - Extra Festive: Colors stay static for one second then flip (2-second loop; even rows start on green, no gray transition), tree emojis prefixed/suffixed on story titles, commenter usernames on comment pages animate with the same checkerboard pattern (even comment rows start green) and gain a trailing 🎄 on the username/timestamp line, plus the Wikimedia Commons Christmas tree GIF decoration loaded from the bundled asset
    - Settings stored in Chrome sync storage for persistence across devices
    - Automatically reloads Hacker News tabs when settings change
    - Extra Festive mode features:

@@ -17,7 +17,7 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
   - Default: Active only during holiday season
   - Always On: Christmas colors year-round
   - Always Off: Disable Christmas colors completely
-  - Extra Festive: Alternating colors that hold for one second then flip (2s loop; even rows start on green to keep the checkerboard feel), an alternating banner tint, a bundled Wikimedia Commons Christmas tree GIF decoration (keeps CSP-safe via data URL), and tree emojis before and after every story title
+  - Extra Festive: Alternating colors that hold for one second then flip (2s loop; even rows start on green to keep the checkerboard feel), an alternating banner tint, a bundled Wikimedia Commons Christmas tree GIF decoration (keeps CSP-safe via data URL), tree emojis before and after every story title, and comment-page usernames that follow the same red/green checkerboard animation with a 🎄 appended to the username/timestamp line
 
 ## Screenshots
 
@@ -65,7 +65,7 @@ The extension:
   - **Default**: Follows holiday season schedule
   - **Always On**: Keeps Christmas colors active year-round
   - **Always Off**: Disables Christmas colors regardless of date
-  - **Extra Festive**: Alternating colors that stay static for one second then flip (2-second loop; even rows start on green), alternating banner tint, tree emojis before/after each story title, and the animated [Wikimedia Commons Christmas tree GIF](https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif) at the top of the page, loaded from a bundled copy and injected as a safe data URL. Colors now jump directly between red and green with no gray in-between.
+  - **Extra Festive**: Alternating colors that stay static for one second then flip (2-second loop; even rows start on green), alternating banner tint, tree emojis before/after each story title, commenter usernames that inherit the same red/green checkerboard animation (even comment rows start on green) with a 🎄 appended to the username/timestamp line on comment pages, and the animated [Wikimedia Commons Christmas tree GIF](https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif) at the top of the page, loaded from a bundled copy and injected as a safe data URL. Colors now jump directly between red and green with no gray in-between.
 
 ## Development & Testing
 

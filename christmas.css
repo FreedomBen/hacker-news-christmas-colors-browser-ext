@@ -116,3 +116,21 @@ body.hn-extra-festive #hnmain > tbody > tr:first-child > td,
 .hn-extra-festive .titleline > a::after {
   content: " 🎄";
 }
+
+/* Extra Festive comment usernames (checkerboard animation) */
+.hn-extra-festive .comment-tree .hnuser {
+  -webkit-animation: alternateRedGreen 2s linear infinite !important;
+  animation: alternateRedGreen 2s linear infinite !important;
+}
+
+/* Even comment rows start on green to preserve the alternating pattern */
+.hn-extra-festive .comment-tree tr.comtr:nth-of-type(even) .hnuser {
+  -webkit-animation-name: alternateGreenRed !important;
+  animation-name: alternateGreenRed !important;
+}
+
+/* Add a tree emoji to the username/timestamp line on comments */
+.hn-extra-festive .comment-tree .comhead::after {
+  content: " 🎄";
+  margin-left: 4px;
+}
