@@ -19,6 +19,8 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
   - Always Off: Disable Christmas colors completely
   - Extra Festive: Alternating colors that hold for one second then flip (2s loop; even rows start on green to keep the checkerboard feel), an alternating banner tint, a bundled Wikimedia Commons Christmas tree GIF decoration on story lists (keeps CSP-safe via data URL; suppressed on comment pages), tree emojis before and after every story title, and comment-page usernames that follow the same red/green checkerboard animation with a 🎄 appended to the username/timestamp line
 
+**Heads up:** Extra Festive mode animates multiple elements every second and can noticeably increase CPU usage on long threads. Switch back to Default/Always On if you want lower resource use and preserve battery life when not plugged in.
+
 ## Screenshots
 
 <div align="center">
