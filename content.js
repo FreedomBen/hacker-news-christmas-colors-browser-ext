@@ -23,6 +23,12 @@ async function getFestiveTreeUrl() {
 }
 
 function addFestiveGif() {
+  // Skip festive GIF on comment threads
+  if (isCommentsPage()) {
+    removeFestiveGif();
+    return;
+  }
+
   // Remove existing GIF if present
   removeFestiveGif();
 
@@ -58,6 +64,10 @@ function addFestiveGif() {
     firstStory.parentNode.insertBefore(gifRow, firstStory);
     console.log('HN Christmas Colors: Festive decoration added');
   }, 100);
+}
+
+function isCommentsPage() {
+  return window.location.pathname === '/item' || !!document.querySelector('.comment-tree');
 }
 
 function removeFestiveGif() {
@@ -142,8 +152,10 @@ async function applyChristmasColors() {
           document.body.classList.add('hn-christmas-colors');
           document.body.classList.add('hn-extra-festive');
         }
-        // Re-add GIF if it gets removed
-        if (!document.getElementById('hn-festive-gif')) {
+        // Keep GIF off comment pages; otherwise ensure it's present
+        if (isCommentsPage()) {
+          removeFestiveGif();
+        } else if (!document.getElementById('hn-festive-gif')) {
           addFestiveGif();
         }
       });
