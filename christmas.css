@@ -25,12 +25,12 @@
   --hn-header-color: #cc1010;
   -webkit-animation:
     hnRankPrimary 2s steps(1, end) infinite,
-    hnRankSecondary 2s steps(1, end) infinite,
-    hnHeaderTint 2s steps(1, end) infinite;
+    hnRankSecondary 2s steps(1, end) infinite;
+    /* hnHeaderTint 2s steps(1, end) infinite;  // paused to keep header static; re-enable by uncommenting this line and the background-color var below */
   animation:
     hnRankPrimary 2s steps(1, end) infinite,
-    hnRankSecondary 2s steps(1, end) infinite,
-    hnHeaderTint 2s steps(1, end) infinite;
+    hnRankSecondary 2s steps(1, end) infinite;
+    /* hnHeaderTint 2s steps(1, end) infinite;  // paused to keep header static; re-enable by uncommenting this line and the background-color var below */
 }
 
 @-webkit-keyframes hnRankPrimary {
@@ -78,7 +78,8 @@
 /* Animate the header bar in extra festive mode via shared variable */
 body.hn-extra-festive #hnmain > tbody > tr:first-child > td,
 .hn-christmas-colors.hn-extra-festive #hnmain > tbody > tr:first-child > td {
-  background-color: var(--hn-header-color, #cc1010) !important;
+  /* background-color: var(--hn-header-color, #cc1010) !important; // keep for easy restore: uncomment this line and hnHeaderTint above */
+  background-color: #cc1010 !important;
 }
 
 /* Add tree emoji before and after each story title in extra festive mode
