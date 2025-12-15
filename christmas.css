@@ -79,7 +79,24 @@
 body.hn-extra-festive #hnmain > tbody > tr:first-child > td,
 .hn-christmas-colors.hn-extra-festive #hnmain > tbody > tr:first-child > td {
   /* background-color: var(--hn-header-color, #cc1010) !important; // keep for easy restore: uncomment this line and hnHeaderTint above */
-  background-color: #cc1010 !important;
+  background-color: #d8d8d8 !important; /* classy silver for Extra Festive header */
+  color: #202020;
+}
+
+/* Checkerboard the header links in Extra Festive mode */
+.hn-extra-festive .pagetop a,
+.hn-extra-festive .pagetop a:visited {
+  color: #be2828 !important;
+}
+
+.hn-extra-festive .pagetop a:nth-of-type(even),
+.hn-extra-festive .pagetop a:nth-of-type(even):visited {
+  color: #005a00 !important;
+}
+
+.hn-extra-festive .pagetop a:hover,
+.hn-extra-festive .pagetop a:focus-visible {
+  text-decoration: underline;
 }
 
 /* Add tree emoji before and after each story title in extra festive mode

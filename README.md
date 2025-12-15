@@ -9,7 +9,7 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
 ## Features
 
 - Automatically applies red and green alternating colors to story numbers on Hacker News
-- Changes the top banner to a festive red color
+- Changes the top banner to a festive red color (switches to silver in Extra Festive mode)
 - Active from the day after Thanksgiving through the first workday of the new year
 - Works on all pages under news.ycombinator.com
 - Compatible with Chrome and Firefox
@@ -17,7 +17,7 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
   - Default: Active only during holiday season
   - Always On: Christmas colors year-round
   - Always Off: Disable Christmas colors completely
-  - Extra Festive: Alternating colors that hold for one second then flip (2s loop; even rows start on green to keep the checkerboard feel), an alternating banner tint, a bundled Wikimedia Commons Christmas tree GIF decoration on story lists (keeps CSP-safe via data URL; suppressed on comment pages), tree emojis before and after every story title, and comment-page usernames that follow the same red/green checkerboard animation with a 🎄 appended to the username/timestamp line
+  - Extra Festive: Alternating colors that hold for one second then flip (2s loop; even rows start on green to keep the checkerboard feel), a silver header with checkerboard red/green nav links, an alternating banner tint, a bundled Wikimedia Commons Christmas tree GIF decoration on story lists (keeps CSP-safe via data URL; suppressed on comment pages), tree emojis before and after every story title, and comment-page usernames that follow the same red/green checkerboard animation with a 🎄 appended to the username/timestamp line
 
 **Heads up:** Extra Festive mode animates multiple elements every second and can noticeably increase CPU usage on long threads. Switch back to Default/Always On if you want lower resource use and preserve battery life when not plugged in.
 
@@ -61,13 +61,13 @@ A browser extension that brings the festive Christmas colors to Hacker News thro
 The extension:
 - Detects if the current date falls within the holiday season (day after Thanksgiving through first workday of January)
 - Applies CSS to alternate story ranking numbers between red (#be2828) and green (#005a00)
-- Changes the top banner color to festive red (#cc1010)
+- Changes the top banner color to festive red (#cc1010) (silver in Extra Festive mode)
 - Only activates on news.ycombinator.com domains
 - Provides a popup interface to switch between four modes:
   - **Default**: Follows holiday season schedule
   - **Always On**: Keeps Christmas colors active year-round
   - **Always Off**: Disables Christmas colors regardless of date
-  - **Extra Festive**: Alternating colors that stay static for one second then flip (2-second loop; even rows start on green), alternating banner tint, tree emojis before/after each story title, commenter usernames that inherit the same red/green checkerboard animation (even comment rows start on green) with a 🎄 appended to the username/timestamp line on comment pages, and the animated [Wikimedia Commons Christmas tree GIF](https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif) at the top of the story list (suppressed on comment pages), loaded from a bundled copy and injected as a safe data URL. Colors now jump directly between red and green with no gray in-between.
+  - **Extra Festive**: Alternating colors that stay static for one second then flip (2-second loop; even rows start on green), a silver header with checkerboard red/green nav links, alternating banner tint, tree emojis before/after each story title, commenter usernames that inherit the same red/green checkerboard animation (even comment rows start on green) with a 🎄 appended to the username/timestamp line on comment pages, and the animated [Wikimedia Commons Christmas tree GIF](https://upload.wikimedia.org/wikipedia/commons/f/f9/500px-Xmas_tree_animated.gif) at the top of the story list (suppressed on comment pages), loaded from a bundled copy and injected as a safe data URL. Colors now jump directly between red and green with no gray in-between.
 
 ## Development & Testing
 
