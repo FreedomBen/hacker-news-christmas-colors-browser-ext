@@ -26,11 +26,11 @@
   -webkit-animation:
     hnRankPrimary 2s steps(1, end) infinite,
     hnRankSecondary 2s steps(1, end) infinite,
-    hnHeaderTint 1s steps(1, end) infinite;
+    hnHeaderTint 2s steps(1, end) infinite;
   animation:
     hnRankPrimary 2s steps(1, end) infinite,
     hnRankSecondary 2s steps(1, end) infinite,
-    hnHeaderTint 1s steps(1, end) infinite;
+    hnHeaderTint 2s steps(1, end) infinite;
 }
 
 @-webkit-keyframes hnRankPrimary {
