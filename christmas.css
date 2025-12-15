@@ -18,92 +18,67 @@
   color: #005a00 !important;  /* HN Christmas green */
 }
 
-/* Extra Festive Mode Animations */
-@keyframes alternateRedGreen {
-  0%,
-  49.999% {
-    color: #be2828;
-  }
-  50%,
-  100% {
-    color: #005a00;
-  }
+/* Extra Festive mode uses shared CSS variables so only a few animations run */
+.hn-extra-festive {
+  --hn-rank-primary: #be2828;
+  --hn-rank-secondary: #005a00;
+  --hn-header-color: #cc1010;
+  -webkit-animation:
+    hnRankPrimary 2s steps(1, end) infinite,
+    hnRankSecondary 2s steps(1, end) infinite,
+    hnHeaderTint 1s steps(1, end) infinite;
+  animation:
+    hnRankPrimary 2s steps(1, end) infinite,
+    hnRankSecondary 2s steps(1, end) infinite,
+    hnHeaderTint 1s steps(1, end) infinite;
 }
 
-@-webkit-keyframes alternateRedGreen {
-  0%,
-  49.999% {
-    color: #be2828;
-  }
-  50%,
-  100% {
-    color: #005a00;
-  }
+@-webkit-keyframes hnRankPrimary {
+  0%, 49.999% { --hn-rank-primary: #be2828; }
+  50%, 100% { --hn-rank-primary: #005a00; }
 }
 
-@keyframes alternateGreenRed {
-  0%,
-  49.999% {
-    color: #005a00;
-  }
-  50%,
-  100% {
-    color: #be2828;
-  }
+@keyframes hnRankPrimary {
+  0%, 49.999% { --hn-rank-primary: #be2828; }
+  50%, 100% { --hn-rank-primary: #005a00; }
 }
 
-@-webkit-keyframes alternateGreenRed {
-  0%,
-  49.999% {
-    color: #005a00;
-  }
-  50%,
-  100% {
-    color: #be2828;
-  }
+@-webkit-keyframes hnRankSecondary {
+  0%, 49.999% { --hn-rank-secondary: #005a00; }
+  50%, 100% { --hn-rank-secondary: #be2828; }
 }
 
-@keyframes alternateHeaderRedGreen {
-  0% {
-    background-color: #cc1010;
-  }
-  50% {
-    background-color: #005a00;
-  }
-  100% {
-    background-color: #cc1010;
-  }
+@keyframes hnRankSecondary {
+  0%, 49.999% { --hn-rank-secondary: #005a00; }
+  50%, 100% { --hn-rank-secondary: #be2828; }
 }
 
-@-webkit-keyframes alternateHeaderRedGreen {
-  0% {
-    background-color: #cc1010;
-  }
-  50% {
-    background-color: #005a00;
-  }
-  100% {
-    background-color: #cc1010;
-  }
+@-webkit-keyframes hnHeaderTint {
+  0% { --hn-header-color: #cc1010; }
+  50% { --hn-header-color: #005a00; }
+  100% { --hn-header-color: #cc1010; }
 }
 
-/* Extra Festive mode - hold for 1s, then flip color */
+@keyframes hnHeaderTint {
+  0% { --hn-header-color: #cc1010; }
+  50% { --hn-header-color: #005a00; }
+  100% { --hn-header-color: #cc1010; }
+}
+
+/* Extra Festive mode - hold for 1s, then flip color without per-element animations */
 .hn-extra-festive .rank {
-  -webkit-animation: alternateRedGreen 2s linear infinite !important;
-  animation: alternateRedGreen 2s linear infinite !important;
+  color: var(--hn-rank-primary, #be2828) !important;
 }
 
 /* Even rows start on green to keep the checkerboard effect */
 .hn-extra-festive .athing:nth-of-type(even) .rank {
-  -webkit-animation-name: alternateGreenRed !important;
-  animation-name: alternateGreenRed !important;
+  color: var(--hn-rank-secondary, #005a00) !important;
 }
 
-/* Animate the header bar in extra festive mode */
+/* Animate the header bar in extra festive mode via shared variable */
 body.hn-extra-festive #hnmain > tbody > tr:first-child > td,
 .hn-christmas-colors.hn-extra-festive #hnmain > tbody > tr:first-child > td {
-  -webkit-animation: alternateHeaderRedGreen 1s linear infinite !important;
-  animation: alternateHeaderRedGreen 1s linear infinite !important;
+  background-color: var(--hn-header-color, #cc1010) !important;
 }
 
 /* Add tree emoji before and after each story title in extra festive mode
@@ -119,14 +94,12 @@ body.hn-extra-festive #hnmain > tbody > tr:first-child > td,
 
 /* Extra Festive comment usernames (checkerboard animation) */
 .hn-extra-festive .comment-tree .hnuser {
-  -webkit-animation: alternateRedGreen 2s linear infinite !important;
-  animation: alternateRedGreen 2s linear infinite !important;
+  color: var(--hn-rank-primary, #be2828) !important;
 }
 
 /* Even comment rows start on green to preserve the alternating pattern */
 .hn-extra-festive .comment-tree tr.comtr:nth-of-type(even) .hnuser {
-  -webkit-animation-name: alternateGreenRed !important;
-  animation-name: alternateGreenRed !important;
+  color: var(--hn-rank-secondary, #005a00) !important;
 }
 
 /* Add a tree emoji to the username/timestamp line on comments */
